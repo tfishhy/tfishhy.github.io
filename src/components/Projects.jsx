@@ -12,20 +12,18 @@ function ProjectCard({ project }) {
   return (
     <div className="py-4">
       <div className="flex items-start justify-between gap-4">
-        <div className="min-w-0">
-          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noreferrer"
-              className="text-sm font-semibold hover:underline"
-            >
-              {project.name}
-            </a>
-            <span className="text-sm text-[color:var(--muted)]">
-              {project.description}
-            </span>
-          </div>
+        <div className="min-w-0 flex-1">
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm font-semibold hover:underline"
+          >
+            {project.name}
+          </a>
+          <p className="mt-1 text-sm leading-relaxed text-[color:var(--muted)]">
+            {project.description}
+          </p>
 
           {project.tags?.length ? (
             <div className="mt-2 flex flex-wrap gap-2 font-mono">
