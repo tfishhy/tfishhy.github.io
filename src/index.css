@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg: #ffffff;
+  --fg: rgba(15, 23, 42, 0.92);
+  --muted: rgba(15, 23, 42, 0.62);
+  --border: rgba(15, 23, 42, 0.12);
+  --chip: rgba(15, 23, 42, 0.04);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Geist', sans-serif;
+
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: rgba(60, 230, 208, 0.18);
+}
+
+.dark:root,
+html.dark {
+  --bg: #000000;
+  --fg: rgba(230, 243, 255, 0.94);
+  --muted: rgba(230, 243, 255, 0.64);
+  --border: rgba(230, 243, 255, 0.10);
+  --chip: rgba(230, 243, 255, 0.05);
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  color: var(--muted);
+}
+
+/* GitHub contributions grid */
+.github-activity {
+  width: 100%;
+}
+.github-months {
+  display: grid;
+  grid-template-columns: repeat(53, 1fr);
+  gap: 2px;
+  font-size: 10px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.github-month {
+  white-space: nowrap;
+}
+.github-grid {
+  display: flex;
+  gap: 2px;
+  align-items: flex-start;
+}
+.github-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.github-cell {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+

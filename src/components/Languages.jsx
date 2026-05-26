@@ -1,0 +1,23 @@
+export default function Languages() {
+  const items = [
+    { name: 'English', level: 'Native' },
+    { name: 'Polish', level: 'A1' },
+  ]
+
+  return (
+    <section id="languages">
+      <div className="section-label">Languages</div>
+      <div className="mt-3 grid grid-cols-2 gap-3">
+        {items.map((lang) => (
+          <div
+            key={lang.name}
+            className="rounded-xl border border-[color:var(--border)] px-4 py-3"
+          >
+            <div className="text-sm font-semibold text-[color:var(--fg)]">{lang.name}</div>
+            <div className="mt-1 text-xs text-[color:var(--muted)]">{lang.level}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
