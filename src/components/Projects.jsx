@@ -1,97 +1,70 @@
 import { FaGithub } from 'react-icons/fa'
 
-function TechChip({ tag }) {
-  return (
-    <span className="inline-flex items-center rounded-full border border-[color:var(--border)] bg-[color:var(--chip)] px-2.5 py-0.5 font-mono text-[11px] text-[color:var(--muted)]">
-      {tag}
-    </span>
-  )
-}
-
 function ProjectCard({ project }) {
   return (
-    <div className="py-4">
-      <div className="flex items-start justify-between gap-4">
-        <div className="min-w-0 flex-1">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noreferrer"
-            className="text-sm font-semibold hover:underline"
-          >
-            {project.name}
-          </a>
-          <p className="mt-1 text-sm leading-relaxed text-[color:var(--muted)]">
-            {project.description}
-          </p>
-
-          {project.tags?.length ? (
-            <div className="mt-2 flex flex-wrap gap-2 font-mono">
-              {project.tags.map((t) => (
-                <TechChip key={t} tag={t} />
-              ))}
-            </div>
-          ) : null}
-        </div>
-
-        <a
-          href={project.github}
-          target="_blank"
-          rel="noreferrer"
-          className="shrink-0 text-[color:var(--muted)] hover:text-[color:var(--fg)]"
-          aria-label={`Open ${project.name} on GitHub`}
-          title="GitHub"
-        >
-          <FaGithub className="h-4 w-4" />
-        </a>
+    <a
+      href={project.github}
+      target="_blank"
+      rel="noreferrer"
+      className="project-card group"
+      style={{ '--project-accent': `var(--accent-${project.accent})` }}
+      aria-label={`Open ${project.name} on GitHub`}
+    >
+      <div className="project-card-title">{project.name}</div>
+      <p className="project-card-desc">{project.description}</p>
+      <div className="project-card-footer">
+        <FaGithub className="h-4 w-4 transition-colors group-hover:text-[color:var(--project-accent)]" />
+        <span className="project-card-arrow" aria-hidden="true">
+          →
+        </span>
       </div>
-    </div>
+    </a>
   )
 }
 
 export default function Projects() {
   const projects = [
     {
-      name: 'SunsetFinder',
-      description:
-        'A small location-based tool that estimates sunset quality and helps you plan the best time to step outside.',
-      tags: ['JavaScript', 'React', 'CSS'],
-      github: 'https://github.com/tfishhy/SunsetFindr',
-    },
-    {
-      name: 'AquaTrack',
-      description:
-        'An aquarium journal for water tests, maintenance notes, and reminders — built for quick logging and calm review.',
-      tags: ['JavaScript', 'React', 'CSS'],
-      github: 'https://github.com/tfishhy/AquaTrack',
-    },
-    {
       name: 'CineplexDatabase',
       description:
         'A database systems course project: schema design, queries, and the structure behind an e-commerce-style application.',
-      tags: ['SQL'],
       github: 'https://github.com/tfishhy/CineplexDatabase',
+      accent: 'teal',
     },
     {
-      name: 'QNotes',
+      name: 'SunsetFinder',
       description:
-        'A lightweight note-taking app focused on fast capture and a clean reading experience.',
-      tags: ['JavaScript', 'CSS', 'Node.js'],
-      github: 'https://github.com/tfishhy/QNotes',
+        'A small location-based tool that estimates sunset quality and helps you plan the best time to step outside.',
+      github: 'https://github.com/tfishhy/SunsetFindr',
+      accent: 'amber',
     },
     {
       name: 'Sneaky-Seats',
       description:
         'A full-stack experiment for finding empty seats in theaters, combining scraping-style inputs with a usable front-end.',
-      tags: ['JavaScript', 'React', 'CSS'],
       github: 'https://github.com/tfishhy/Sneaky-Seats',
+      accent: 'violet',
+    },
+    {
+      name: 'QNotes',
+      description:
+        'A lightweight note-taking app focused on fast capture and a clean reading experience.',
+      github: 'https://github.com/tfishhy/QNotes',
+      accent: 'blue',
+    },
+    {
+      name: 'AquaTrack',
+      description:
+        'An aquarium journal for water tests, maintenance notes, and reminders built for quick logging and calm review.',
+      github: 'https://github.com/tfishhy/AquaTrack',
+      accent: 'rose',
     },
   ]
 
   return (
     <section id="work">
-      <div className="section-label">Projects</div>
-      <div className="mt-2 divide-y divide-[color:var(--border)]">
+      <h2 className="section-heading">projects</h2>
+      <div className="mt-4 project-grid">
         {projects.map((p) => (
           <ProjectCard key={p.name} project={p} />
         ))}
@@ -99,4 +72,3 @@ export default function Projects() {
     </section>
   )
 }
-

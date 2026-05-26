@@ -21,14 +21,14 @@ export default function Skills() {
 
   return (
     <section id="skills">
-      <div className="section-label">Skills</div>
-      <div className="mt-3 flex flex-wrap gap-2 text-xs text-[color:var(--muted)]">
+      <h2 className="section-heading">skills</h2>
+      <div className="mt-4 flex flex-wrap gap-2 text-xs text-[color:var(--muted)]">
         {skills.map((s) => (
           <span
             key={s.label}
-            className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--chip)] px-3 py-1"
+            className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--card)] px-3 py-1"
           >
-            <span className="flex h-5 w-7 items-center justify-center rounded-full border border-[color:var(--border)] bg-white text-[10px] font-semibold text-[color:var(--fg)] dark:bg-[color:var(--chip)]">
+            <span className="flex h-5 w-7 items-center justify-center rounded-full border border-[color:var(--border)] bg-[color:var(--chip)] text-[10px] font-semibold text-[color:var(--fg)]">
               {s.short}
             </span>
             <span className="font-mono">{s.label}</span>

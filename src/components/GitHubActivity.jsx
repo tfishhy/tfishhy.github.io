@@ -206,11 +206,14 @@ export default function GitHubActivity({ username = 'tfishhy', days = 365 }) {
           ) : total == null ? (
             'Loading contributions…'
           ) : (
-            `${total.toLocaleString()} contributions in the last year`
+            <>
+              <span className="text-[color:var(--accent-teal)]">{total.toLocaleString()}</span>{' '}
+              contributions in the last year
+            </>
           )}
         </div>
         <a
-          className="hover:underline"
+          className="text-[color:var(--accent-violet)] transition-opacity hover:opacity-75"
           href={`https://github.com/${username}`}
           target="_blank"
           rel="noreferrer"

@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react'
 import SocialLinks from './SocialLinks.jsx'
 
 function formatTorontoTime(date) {
-  // America/Toronto handles EST/EDT automatically.
   const fmt = new Intl.DateTimeFormat('en-CA', {
     timeZone: 'America/Toronto',
     hour: 'numeric',
@@ -70,18 +69,22 @@ export default function DocHeader() {
   const torontoTime = useMemo(() => formatTorontoTime(now), [now])
 
   return (
-    <header className="pt-10">
+    <header>
       <div className="flex items-start justify-between gap-6">
         <div className="flex items-start gap-4">
           <img
             src="/ecco.jpg"
             alt="Lucas Bigas"
-            className="h-24 w-24 shrink-0 rounded-full border border-[color:var(--border)] object-cover"
+            className="h-20 w-20 shrink-0 rounded-full border border-[color:var(--border)] object-cover"
           />
           <div>
-            <div className="text-base font-semibold tracking-tight">Lucas Bigas</div>
-            <div className="mt-0.5 text-sm text-[color:var(--muted)]">
-              Cybersecurity Student &amp; Full Stack Developer @York University
+            <div className="text-xl font-semibold tracking-tight">Lucas Bigas</div>
+            <div className="mt-1 text-sm font-medium">
+              <span className="text-[color:var(--accent-rose)]">security</span>
+              <span className="text-[color:var(--muted)] opacity-50"> · </span>
+              <span className="text-[color:var(--accent-blue)]">code</span>
+              <span className="text-[color:var(--muted)] opacity-50"> · </span>
+              <span className="text-[color:var(--accent-teal)]">build</span>
             </div>
             <div className="mt-1 text-sm text-[color:var(--muted)]">
               Toronto, ON · {torontoTime}
@@ -89,24 +92,20 @@ export default function DocHeader() {
           </div>
         </div>
 
-        <div className="relative text-xs">
+        <div className="relative shrink-0 text-right text-sm text-[color:var(--muted)]">
           <button
             type="button"
             onClick={() => setMenuOpen((o) => !o)}
-            className="inline-flex items-center gap-1 rounded-full border border-[color:var(--border)] bg-[color:var(--chip)] px-3 py-1.5 text-[color:var(--muted)] hover:text-[color:var(--fg)]"
+            className="inline-flex items-center gap-1 rounded-full border border-[color:var(--border)] bg-[color:var(--chip)] px-3 py-1.5 text-xs text-[color:var(--muted)] hover:text-[color:var(--fg)]"
           >
             <span>{mode === 'system' ? '모' : mode === 'dark' ? '☾' : '☼'}</span>
             <span className="text-xs">
-              {mode === 'system'
-                ? 'System'
-                : resolved === 'dark'
-                ? 'Dark'
-                : 'Light'}
+              {mode === 'system' ? 'System' : resolved === 'dark' ? 'Dark' : 'Light'}
             </span>
             <span className="text-[10px]">▾</span>
           </button>
           {menuOpen && (
-            <div className="absolute right-0 mt-2 w-32 rounded-xl border border-[color:var(--border)] bg-[color:var(--bg)] p-1 text-[11px] shadow-lg">
+            <div className="absolute right-0 z-10 mt-2 w-32 rounded-xl border border-[color:var(--border)] bg-[color:var(--bg)] p-1 text-[11px] shadow-lg">
               {[
                 { key: 'light', label: 'Light', icon: '☼' },
                 { key: 'dark', label: 'Dark', icon: '☾' },
@@ -132,18 +131,25 @@ export default function DocHeader() {
               ))}
             </div>
           )}
+          <div className="mt-2">
+            cybersecurity @{' '}
+            <a className="text-link" href="https://www.yorku.ca/" target="_blank" rel="noreferrer">
+              York University
+            </a>
+          </div>
         </div>
       </div>
 
-      <div className="mt-5 text-[color:var(--muted)]">
-        <SocialLinks />
+      <div className="mt-3 space-y-1.5 text-sm text-[color:var(--muted)]">
+        <SocialLinks compact />
+        <p className="max-w-[62ch] leading-relaxed">
+          <span className="text-[color:var(--accent-rose)]">Cybersecurity student</span> focused on
+          building <span className="text-[color:var(--accent-teal)]">practical software</span>,
+          learning how systems fail, and strengthening them. I like{' '}
+          <span className="text-[color:var(--accent-violet)]">calm interfaces</span> and clean
+          foundations.
+        </p>
       </div>
-
-      <p className="mt-5 max-w-[62ch] text-sm leading-relaxed text-[color:var(--fg)]">
-        Cybersecurity student focused on building practical software, learning how systems fail,
-        and tightening them back up. I like calm interfaces and clean foundations.
-      </p>
     </header>
   )
 }
-

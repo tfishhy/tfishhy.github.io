@@ -8,7 +8,7 @@ import Contact from './components/Contact.jsx'
 export default function App() {
   return (
     <div className="min-h-screen overflow-x-hidden">
-      <div id="top" className="px-6 pb-16">
+      <div id="top" className="px-6 pb-16 pt-6">
         <main className="mx-auto max-w-[680px]">
           <DocHeader />
 
@@ -20,8 +20,8 @@ export default function App() {
 
           <hr className="divider my-10" />
           <section id="github">
-            <div className="section-label">GitHub Activity</div>
-            <div className="mt-3">
+            <h2 className="section-heading">github activity</h2>
+            <div className="mt-4">
               <GitHubActivity username="tfishhy" />
             </div>
           </section>
