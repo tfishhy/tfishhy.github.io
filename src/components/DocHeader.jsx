@@ -81,7 +81,7 @@ export default function DocHeader() {
           <div>
             <div className="text-base font-semibold tracking-tight">Lucas Bigas</div>
             <div className="mt-0.5 text-sm text-[color:var(--muted)]">
-              Cybersecurity Student &amp; Developer
+              Cybersecurity Student &amp; Full Stack Developer @York University
             </div>
             <div className="mt-1 text-sm text-[color:var(--muted)]">
               Toronto, ON · {torontoTime}
