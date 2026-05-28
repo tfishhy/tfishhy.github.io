@@ -15,6 +15,11 @@
   --accent-amber: #9a7344;
   --accent-rose: #9a5a6a;
   --accent-violet: #6b5a9a;
+  --github-cell-0: #ebedf0;
+  --github-cell-1: #9be9a8;
+  --github-cell-2: #40c463;
+  --github-cell-3: #30a14e;
+  --github-cell-4: #216e39;
 }
 
 html {
@@ -53,6 +58,11 @@ html.dark {
   --accent-amber: #c4a06a;
   --accent-rose: #c48a98;
   --accent-violet: #a08ec4;
+  --github-cell-0: #161b22;
+  --github-cell-1: #0e4429;
+  --github-cell-2: #006d32;
+  --github-cell-3: #26a641;
+  --github-cell-4: #39d353;
 }
 
 .divider {
@@ -67,49 +77,26 @@ html.dark {
   color: var(--fg);
   padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--border);
-  background:
-    linear-gradient(to right, var(--heading-accent, var(--accent)) 0, var(--heading-accent, var(--accent)) 2.25rem, transparent 2.25rem)
-    bottom / 100% 2px no-repeat;
 }
 
-#work {
-  --heading-accent: var(--accent-blue);
-}
-
-#skills {
-  --heading-accent: var(--accent-teal);
-}
-
-#github {
-  --heading-accent: var(--accent-violet);
-}
-
-#languages {
-  --heading-accent: var(--accent-amber);
-}
-
-#contact {
-  --heading-accent: var(--accent-rose);
-}
-
-.text-highlight {
-  color: var(--highlight, var(--accent));
-}
-
-.social-link[data-tone='blue'] {
+header .social-link[data-tone='blue'] {
   --link-accent: var(--accent-blue);
 }
 
-.social-link[data-tone='violet'] {
+header .social-link[data-tone='violet'] {
   --link-accent: var(--accent-violet);
 }
 
-.social-link[data-tone='rose'] {
+header .social-link[data-tone='rose'] {
   --link-accent: var(--accent-rose);
 }
 
-.social-link:hover {
+header .social-link:hover {
   color: var(--link-accent, var(--fg));
+}
+
+.social-link:hover {
+  color: var(--fg);
 }
 
 .section-label {
@@ -143,13 +130,8 @@ html.dark {
   min-height: 9.5rem;
   padding: 1rem 1.125rem;
   border-radius: 10px;
-  border: 1px solid transparent;
-  border-top: 2px solid color-mix(in srgb, var(--project-accent, var(--accent)) 35%, transparent);
-  background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--project-accent, var(--accent)) 5%, var(--card)) 0%,
-      var(--card) 42%
-    );
+  border: 1px solid var(--border);
+  background: var(--card);
   color: inherit;
   cursor: pointer;
   transition:
@@ -165,13 +147,7 @@ html.dark {
 
 .project-card:hover {
   transform: translateY(-3px);
-  background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--project-accent, var(--accent)) 8%, var(--card-hover)) 0%,
-      var(--card-hover) 42%
-    );
-  border-color: var(--border);
-  border-top-color: color-mix(in srgb, var(--project-accent, var(--accent)) 55%, transparent);
+  background: var(--card-hover);
   box-shadow: 0 10px 28px rgba(26, 35, 50, 0.08);
 }
 
@@ -180,7 +156,7 @@ html.dark {
 }
 
 .project-card:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--fg);
   outline-offset: 2px;
 }
 
@@ -188,7 +164,7 @@ html.dark {
   font-size: 0.9375rem;
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: color-mix(in srgb, var(--project-accent, var(--fg)) 78%, var(--fg));
+  color: var(--fg);
 }
 
 .project-card-desc {
@@ -214,7 +190,7 @@ html.dark {
 
 .project-card:hover .project-card-arrow {
   transform: translateX(3px);
-  color: var(--project-accent, var(--fg));
+  color: var(--fg);
 }
 
 /* GitHub contributions grid */

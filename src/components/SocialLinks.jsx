@@ -8,7 +8,7 @@ export default function SocialLinks({
   compact = false,
 }) {
   const link =
-    'social-link text-sm text-[color:var(--muted)] transition-colors hover:text-[color:var(--link-accent,var(--fg))]'
+    'social-link text-sm text-[color:var(--muted)] transition-colors'
 
   return (
     <div className={`inline-flex items-center ${compact ? 'gap-3' : 'gap-4'}`}>

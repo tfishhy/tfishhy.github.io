@@ -31,14 +31,6 @@ function monthLabel(date) {
   return MONTHS[date.getMonth()]
 }
 
-function palette(level, dark) {
-  // GitHub-ish greens; keep subtle.
-  const light = ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39']
-  const d = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353']
-  const arr = dark ? d : light
-  return arr[Math.max(0, Math.min(arr.length - 1, level))]
-}
-
 function levelForCount(count) {
   if (count <= 0) return 0
   if (count <= 2) return 1
@@ -136,8 +128,6 @@ export default function GitHubActivity({ username = 'tfishhy', days = 365 }) {
     return { weeks: w, total: safeTotal, monthStarts: monthStartLabels }
   }, [data, days])
 
-  const isDark = document.documentElement.classList.contains('dark')
-
   return (
     <div>
       <div className="github-activity-wrap">
@@ -165,7 +155,7 @@ export default function GitHubActivity({ username = 'tfishhy', days = 365 }) {
                 const count = cell.count
                 const bg =
                   typeof count === 'number'
-                    ? palette(levelForCount(count), isDark)
+                    ? `var(--github-cell-${levelForCount(count)})`
                     : 'transparent'
                 const title =
                   typeof count === 'number'
@@ -207,7 +197,9 @@ export default function GitHubActivity({ username = 'tfishhy', days = 365 }) {
             'Loading contributions…'
           ) : (
             <>
-              <span className="text-[color:var(--accent-teal)]">{total.toLocaleString()}</span>{' '}
+              <span className="font-semibold text-[color:var(--accent-teal)]">
+                {total.toLocaleString()}
+              </span>{' '}
               contributions in the last year
             </>
           )}
