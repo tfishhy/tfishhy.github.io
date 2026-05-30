@@ -12,7 +12,7 @@ export default function App() {
         <main className="mx-auto max-w-[680px]">
           <DocHeader />
 
-          <hr className="divider my-10" />
+          <hr className="divider mt-6 mb-10" />
           <Projects />
 
           <hr className="divider my-10" />

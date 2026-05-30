@@ -75,7 +75,7 @@ export default function DocHeader() {
           <img
             src="/ecco.jpg"
             alt="Lucas Bigas"
-            className="h-20 w-20 shrink-0 rounded-full border border-[color:var(--border)] object-cover"
+            className="h-25 w-25 shrink-0 rounded-full border border-[color:var(--border)] object-cover"
           />
           <div>
             <div className="text-xl font-semibold tracking-tight">Lucas Bigas</div>
@@ -140,15 +140,22 @@ export default function DocHeader() {
         </div>
       </div>
 
-      <div className="mt-3 space-y-1.5 text-sm text-[color:var(--muted)]">
-        <SocialLinks compact />
-        <p className="max-w-[62ch] leading-relaxed">
-          <span className="text-[color:var(--accent-rose)]">Cybersecurity student</span> focused on
-          building <span className="text-[color:var(--accent-teal)]">practical software</span>,
-          learning how systems fail, and strengthening them. I like{' '}
-          <span className="text-[color:var(--accent-violet)]">calm interfaces</span> and clean
-          foundations.
-        </p>
+      <div className="mt-2 flex items-start gap-2 text-sm text-[color:var(--muted)]">
+        <div className="min-w-0 flex-1 space-y-1.5">
+          <SocialLinks compact />
+          <p className="max-w-[62ch] leading-relaxed">
+            <span className="text-[color:var(--accent-rose)]">Cybersecurity student</span> focused on
+            building <span className="text-[color:var(--accent-teal)]">practical software</span>,
+            learning how systems fail, and strengthening them. I like{' '}
+            <span className="text-[color:var(--accent-violet)]">calm interfaces</span> and clean
+            foundations.
+          </p>
+        </div>
+        <img
+          src="/monchicchi.png"
+          alt=""
+          className="-mt-3 h-24 w-auto shrink-0 object-contain"
+        />
       </div>
     </header>
   )
